@@ -1,0 +1,73 @@
+<mvc:View controllerName="app.capgb27odatamining.controller.MiningView"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:comp="sap.ui.comp.filterbar"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+
+  <content />
+  <comp:FilterBar>
+        <comp:filterItems>
+            <comp:FilterItem name="Filter by LOC ID">
+                <comp:control>
+        <Input id= "idFilterloc" placeholder="Filter by LOC ID" liveChange="onSearch"></Input>
+                </comp:control>
+            </comp:FilterItem>
+            <comp:FilterItem name="Filter by Descr">
+            <comp:control>
+        <Input id= "idFilterdesc" placeholder="Filter by Description" liveChange="onSearch"></Input>
+            </comp:control>
+            </comp:FilterItem>
+            </comp:filterItems>
+        </comp:FilterBar>
+ 
+<Table id="idMiningTab" items="{MiningDetails>/}" mode="SingleSelectMaster" selectionChange="onRowSelection" >
+            <columns>
+                <Column >
+                    <Text text="{i18n>LOCATION_ID}"></Text>
+                </Column>
+                <Column >
+                    <Text text="{i18n>LOC_DESCPN}"></Text>
+                </Column>
+                <Column >
+                    <Text text="{i18n>M_RES_ALLOC}"></Text>
+                </Column>
+                <Column >
+                    <Text text="{i18n>TOTAL_COST}"></Text>
+                </Column>
+                <Column >
+                    <Text text="{i18n>REPT_POSS_MIN}"></Text>
+                </Column>
+                <Column >
+                    <Text text="{i18n>TOTAL_DRILLS}"></Text>
+                </Column>
+                <Column >
+                    <Text text="{i18n>MINERALS_FOUND}"></Text>
+                </Column>
+                <Column >
+                    <Text text="{i18n>Action}"></Text>
+                </Column>
+            </columns>
+            <ColumnListItem >
+                <cells>
+                    <Text text="{MiningDetails>LOCATION_ID}"></Text>
+                    <Text text="{MiningDetails>LOC_DESCPN}"></Text>
+                    <Text text="{MiningDetails>M_RES_ALLOC}"></Text>
+                    <Text text="{MiningDetails>TOTAL_COST}"></Text>
+                    <Text text="{MiningDetails>REPT_POSS_MIN}"></Text>
+                    <Text text="{MiningDetails>TOTAL_DRILLS}"></Text>
+                    <Text text="{MiningDetails>MINERALS_FOUND}"></Text>
+                    
+                    <Button icon="sap-icon://delete" press="onDelete"></Button>
+
+                </cells>
+            </ColumnListItem>
+        </Table>
+        <footer>
+            <OverflowToolbar >
+                <ToolbarSpacer />
+                <Button text="{i18n>Create}" press="onCreate"></Button>
+            </OverflowToolbar>
+        </footer>
+
+    </Page>
+</mvc:View>

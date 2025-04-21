@@ -1,0 +1,174 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "app.capgb27odatamining",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.3",
+      "toolsId": "8dd4066a-b106-4bc8-95fd-5d8181942cb9"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/Z9311_MINING_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "miningdetails-create": {
+          "semanticObject": "miningdetails",
+          "action": "create",
+          "title": "{{miningdetails-create.flpTitle}}",
+          "subTitle": "{{miningdetails-create.flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.134.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "app.capgb27odatamining.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "MiningDetails":{
+        "type": "sap.ui.model.json.JSONModel"
+    }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "app.capgb27odatamining.view",
+        "async": true,
+        "viewPath": "app.capgb27odatamining.view"
+      },
+      "routes": [
+        {
+          "name": "RouteMiningView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMiningView"
+          ]
+        },
+        {
+          "name": "RouteCreateView",
+          "pattern": "create",
+          "target": [
+            "TargetCreateView"
+          ]
+        },
+        {
+          "name": "RouteDetailView",
+          "pattern": "detail/{indexDetail}",
+          "target": [
+            "TargetDetailView"
+          ]
+        },
+        {
+          "name": "RouteUpdateView",
+          "pattern": "update/{indexDetail}",
+          "target": [
+            "TargetUpdateView"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetMiningView": {
+          "id": "MiningView",
+          "name": "MiningView"
+        },
+        "TargetCreateView": {
+          "transition":"slide",
+          "viewId":"idCreate",
+          "viewName":"CreateView"
+          
+        },
+        "TargetDetailView": {
+          "transition":"slide",
+          "viewId":"idDetail",
+          "viewName":"DetailView"
+          
+        },
+        "TargetUpdateView": {
+          "transition":"slide",
+          "viewId":"idUpdate",
+          "viewName":"UpdateView"
+          
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "app.capgb27odatamining.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "appcapgb27odatamining"
+  }
+}

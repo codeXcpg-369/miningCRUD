@@ -1,0 +1,31 @@
+<mvc:View controllerName="app.capgb27odatamining.controller.CreateView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="idCreatePage" title="{i18n>titleCreate}">
+    <f:SimpleForm editable="true">
+        <Label text="Location ID" required="true"></Label>
+        <Input id="idCarrCr"></Input>
+
+         <Label text="Description"></Label>
+         <Input id="idConnCr"></Input>
+
+         <Label text=" Mining Resource Allc"></Label>
+         <Input id="idBookCr"></Input>
+
+         <Label text="Total Cost"></Label>
+         <Input id="idDofCr" width="500px"></Input>
+
+         <Label text="Possible Minerals"></Label>
+         <Input id="idMinCr"  width="500px"></Input>
+
+         <Label text="Total Drills"></Label>
+         <Input id="idTotCr"  width="500px"></Input>
+
+         <Label text="Minerals Found"></Label>
+         <Input id="idMfCr"  width="500px"></Input>
+
+         <Button text="{i18n>Create}" press="onSubmit" width="80px"></Button>
+    </f:SimpleForm>
+    </Page>
+</mvc:View>

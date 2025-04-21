@@ -1,0 +1,45 @@
+<mvc:View
+    controllerName="app.capgb27odatamining.controller.DetailView"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Page
+        id="idDet"
+        title="{i18n>detail}"
+    >
+        <f:SimpleForm editable="true">
+            <Label text="LOCATION ID " />
+            <Text text="{MiningDetails>LOCATION_ID}" />
+
+            <Label text="DESCRIPTION" />
+            <Text text="{MiningDetails>LOC_DESCPN}" />
+
+            <Label text="Mining Resource Allc" />
+            <Text text="{MiningDetails>M_RES_ALLOC}" />
+            <Label text="Total Cost" />
+            <Text text="{MiningDetails>TOTAL_COST}" />
+            <Label text="Possible Minerals" />
+            <Text text="{MiningDetails>REPT_POSS_MIN}" />
+
+            <Label text="Total Drills" />
+            <!-- <Text text="{path:'MiningDetails>Fldate', type:'sap.ui.model.type.Date', formatOptions:{pattern:'dd-MM-yyyy'} }"></Text> -->
+            <Text text="{MiningDetails>TOTAL_DRILLS}" />
+
+            <Label text="Minerals Found" />
+            <Text text="{MiningDetails>MINERALS_FOUND}" />
+            <!-- <Text text="{path:'MiningDetails>OrderDate', type:'sap.ui.model.type.Date', formatOptions:{pattern:'dd-MM-yyyy'} }"></Text> -->
+        </f:SimpleForm>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button
+                    text="{i18n>Edit}"
+                    press="onEdit"
+                    width="80px"
+                />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

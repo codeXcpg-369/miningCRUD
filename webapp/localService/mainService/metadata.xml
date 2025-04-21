@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="Z9311_MINING_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="WA" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LOCATION_ID"/>
+                    <PropertyRef Name="LOC_DESCPN"/>
+                </Key>
+                <Property Name="LOCATION_ID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="LOC_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LOC_DESCPN" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Loc_Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="M_RES_ALLOC" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="M_resource" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TOTAL_COST" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Total Cost" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    </edmx:DataServices>
+</edmx:Edmx>
