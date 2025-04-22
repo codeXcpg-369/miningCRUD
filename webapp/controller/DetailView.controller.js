@@ -2,11 +2,13 @@ sap.ui.define([
     "./BaseController",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "sap/m/MessageBox"
-], (Controller, Filter, FilterOperator, MessageBox) => {
+    "sap/m/MessageBox",
+      "app/capgb27odatamining/formatter/formatter"
+], (Controller, Filter, FilterOperator, MessageBox,formatter) => {
     "use strict";
 
     return Controller.extend("app.capgb27odatamining.controller.DetailView", {
+        formatter: formatter,
         onInit: function() {
             let oRouter = this.getRouter();
             oRouter.attachRoutePatternMatched(this._oRouteMatched, this);
@@ -23,6 +25,10 @@ sap.ui.define([
             oRouter.navTo("RouteUpdateView",{
                 indexDetail:this.index
             })
+        },
+        onHome:function(){
+            let oRouter = this.getRouter();
+            oRouter.navTo("RouteMiningView")
         }
       
 

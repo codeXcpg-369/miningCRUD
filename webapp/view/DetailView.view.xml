@@ -8,38 +8,46 @@
     <Page
         id="idDet"
         title="{i18n>detail}"
+        class="pageBackground"
     >
         <f:SimpleForm editable="true">
-            <Label text="LOCATION ID " />
-            <Text text="{MiningDetails>LOCATION_ID}" />
+            <Label text="LOCATION ID " class="labelText" />
+            <Text text="{MiningDetails>LOCATION_ID}" class="textContent" />
 
-            <Label text="DESCRIPTION" />
-            <Text text="{MiningDetails>LOC_DESCPN}" />
+            <Label text="DESCRIPTION" class="labelText" />
+            <Text text="{MiningDetails>LOC_DESCPN}" class="textContent" />
 
-            <Label text="Mining Resource Allc" />
-            <Text text="{MiningDetails>M_RES_ALLOC}" />
-            <Label text="Total Cost" />
-            <Text text="{MiningDetails>TOTAL_COST}" />
-            <Label text="Possible Minerals" />
-            <Text text="{MiningDetails>REPT_POSS_MIN}" />
+            <Label text="MINING RESOURCE ALLOC" class="labelText" />
+            <Text text="{MiningDetails>M_RES_ALLOC}" class="textContent" />
 
-            <Label text="Total Drills" />
-            <!-- <Text text="{path:'MiningDetails>Fldate', type:'sap.ui.model.type.Date', formatOptions:{pattern:'dd-MM-yyyy'} }"></Text> -->
-            <Text text="{MiningDetails>TOTAL_DRILLS}" />
+            <Label text="TOTAL COST" class="labelText" />
+            <Text text="{path: 'MiningDetails>TOTAL_COST', formatter: '.formatter.formatCurrency'}" class="textContent"></Text>
 
-            <Label text="Minerals Found" />
-            <Text text="{MiningDetails>MINERALS_FOUND}" />
-            <!-- <Text text="{path:'MiningDetails>OrderDate', type:'sap.ui.model.type.Date', formatOptions:{pattern:'dd-MM-yyyy'} }"></Text> -->
+            <Label text="POSSIBLE MINERALS" class="labelText" />
+            <Text text="{MiningDetails>REPT_POSS_MIN}" class="textContent" />
+
+            <Label text="TOTAL DRILLS" class="labelText" />
+            <Text text="{MiningDetails>TOTAL_DRILLS}" class="textContent" />
+
+            <Label text="MINERALS FOUND" class="labelText" />
+            <Text text="{MiningDetails>MINERALS_FOUND}" class="textContent" />
+
+            <Button
+                icon="sap-icon://request"
+                text="{i18n>Edit}"
+                press="onEdit"
+                width="80px"
+                type="Emphasized"
+                class="buttonHover"
+            />
+            <Button
+                icon="sap-icon://nav-back"
+                text="{i18n>Back}"
+                press="onHome"
+                width="80px"
+                type="Emphasized"
+                class="buttonHover"
+            />
         </f:SimpleForm>
-        <footer>
-            <OverflowToolbar>
-                <ToolbarSpacer />
-                <Button
-                    text="{i18n>Edit}"
-                    press="onEdit"
-                    width="80px"
-                />
-            </OverflowToolbar>
-        </footer>
     </Page>
 </mvc:View>

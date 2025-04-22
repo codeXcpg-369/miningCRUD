@@ -2,11 +2,13 @@ sap.ui.define([
     "./BaseController",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "sap/m/MessageBox"
-], (Controller, Filter, FilterOperator, MessageBox) => {
+    "sap/m/MessageBox",
+    "app/capgb27odatamining/formatter/formatter"
+], (Controller, Filter, FilterOperator, MessageBox, formatter) => {
     "use strict";
 
     return Controller.extend("app.capgb27odatamining.controller.MiningView", {
+        formatter: formatter,
         onInit: function() {
             this._getData()
         },
@@ -21,6 +23,7 @@ sap.ui.define([
                 error: () => {}
             });
         },
+
         onCreate: function() {
             var oRouter = this.getRouter();
             oRouter.navTo("RouteCreateView");
@@ -30,12 +33,23 @@ sap.ui.define([
             let aFilter = [];
             let slocId = this.getView().byId("idFilterloc").getValue();
             let sdescId = this.getView().byId("idFilterdesc").getValue();
+            let sdrillId = this.getView().byId("idFilterdrill").getValue();
+            let sMinId = this.getView().byId("idFilterMin").getValue();
+
             if (slocId) {
                 let filterName = new Filter("LOCATION_ID", FilterOperator.Contains, slocId);
                 aFilter.push(filterName);
             }
             if (sdescId) {
                 let filterName = new Filter("LOC_DESCPN", FilterOperator.Contains, sdescId);
+                aFilter.push(filterName);
+            }
+            if (sdrillId) {
+                let filterName = new Filter("TOTAL_DRILLS", FilterOperator.Contains, sdrillId);
+                aFilter.push(filterName);
+            }
+            if (sMinId) {
+                let filterName = new Filter("MINERALS_FOUND", FilterOperator.Contains, sMinId);
                 aFilter.push(filterName);
             }
 

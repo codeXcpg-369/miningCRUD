@@ -40,14 +40,14 @@ sap.ui.define([
 
             let oModel=this.getOwnerComponent().getModel()
             let entity="/WASet"
-
+            let that = this;
             oModel.create(entity, payload,{
                 success:function(response){
                     MessageBox.success("Record Inserted",{
                         onClose: function(){
-                            var oRouter=this.getOwnerComponent().getRouter();
-                            oRouter.navTo("RouteMiningView");
- 
+                            let oRouter = that.getOwnerComponent().getRouter();
+                            oRouter.navTo("RouteMiningView")
+                            oModel.refresh(true);
                         }
                     })
                 },

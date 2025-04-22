@@ -14,7 +14,9 @@
               <Input value="{MiningDetails>M_RES_ALLOC}" id="idBookUp" ></Input>
 
          <Label text="Total Cost"></Label>
-          <Input value="{MiningDetails>TOTAL_COST}" id="idDofUp" ></Input>
+          <!-- <Input value="{MiningDetails>TOTAL_COST}" id="idDofUp" ></Input> -->
+          <Input value="{path: 'MiningDetails>TOTAL_COST', formatter: '.formatter.formatCurrency'}" id="idDofUp" ></Input>
+          <!-- <Text text="{path: 'MiningDetails>TOTAL_COST', formatter: '.formatter.formatCurrency'}"></Text> -->
 
          <Label text="Possible Minerals"></Label>
          <Input value="{MiningDetails>REPT_POSS_MIN}" id="idMinUp" ></Input>
@@ -25,7 +27,7 @@
          <Label text="Minerals Found"></Label>
          <Input value="{MiningDetails>MINERALS_FOUND}" id="idMfUp" ></Input>
 
-         <Button text="{i18n>Update}" press="onUpdate" width="80px"></Button>
+         <Button icon="sap-icon://synchronize" text="{i18n>Update}" press="onUpdate" width="100px" type="Emphasized"></Button>
     </f:SimpleForm>
     </Page>
 </mvc:View>

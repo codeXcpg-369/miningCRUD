@@ -25,7 +25,7 @@
          <Label text="Minerals Found"></Label>
          <Input id="idMfCr"  width="500px"></Input>
 
-         <Button text="{i18n>Create}" press="onSubmit" width="80px"></Button>
+         <Button icon="sap-icon://create" text="{i18n>Create}" press="onSubmit" width="100px" type="Emphasized"></Button>
     </f:SimpleForm>
     </Page>
 </mvc:View>

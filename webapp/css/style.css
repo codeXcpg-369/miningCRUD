@@ -1,1 +1,92 @@
-/* Enter your custom styles here */
+
+    .page {
+        background-color: #f5f5f5; /* Light grey background */
+        padding: 20px;
+    }
+    .filterBar {
+        margin-bottom: 20px;
+    }
+    .table {
+        background-color: rgb(64, 159, 162);
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    /* .greenButton {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    } */
+    .blueButton {
+        background-color: blue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+.DetHead{
+    font-style: normal;
+    font-size: large;
+    font-weight: bold;
+    color: rgb(80, 44, 121);
+}
+/* style.css */
+.pageBackground {
+    background-color: #a6dcde; /* Light blue background */
+    border: 2px solid #00008b; /* Dark blue border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the border */
+}
+
+.DetHead {
+    font-size: 24px;
+    font-weight: bold;
+    color: #141429; /* Dark blue text */
+}
+
+.labelText {
+    color: #00008b; /* Dark blue text */
+    font-weight: bold;
+}
+
+.textContent {
+    color: #000000; /* Black text */
+}
+/* style.css */
+.pageBackground {
+    background-color: #f0f8ff; /* Light blue background */
+    border: 2px solid #00008b; /* Dark blue border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the border */
+}
+
+.filterBar {
+    background-color: #e6f7ff; /* Light cyan background */
+    border: 1px solid #00008b; /* Dark blue border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the border */
+    margin-bottom: 20px; /* Space below the filter bar */
+}
+
+.tableStyle {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #00008b; /* Dark blue border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the border */
+}
+
+.tableHeader {
+    background-color: #ffffff; /* Dark blue background */
+    color: #000000; /* White text */
+    font-weight: bold;
+    padding: 10px; /* Padding for better visibility */
+}
+
+.tableRow {
+    background-color: #f0f8ff; /* Light blue background */
+}
+
+.tableRow:nth-child(even) {
+    background-color: #e6f7ff; /* Light cyan background for even rows */
+}

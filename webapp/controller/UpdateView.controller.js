@@ -1,10 +1,12 @@
 sap.ui.define([
     "./BaseController",
-    "sap/m/MessageBox"
-], (Controller, MessageBox) => {
+    "sap/m/MessageBox",
+      "app/capgb27odatamining/formatter/formatter"
+], (Controller, MessageBox,formatter) => {
     "use strict";
 
     return Controller.extend("app.capgb27odatamining.controller.UpdateView", {
+        formatter: formatter,
         onInit: function () {
             let oRouter = this.getRouter();
             oRouter.attachRoutePatternMatched(this._routeMatched, this);
@@ -48,14 +50,14 @@ sap.ui.define([
             let oModel = this.getOwnerComponent().getModel();
 
             let entity = `/WASet(LOCATION_ID='${sLocId}',LOC_DESCPN='${sDescId}')`;
-   
+            let that = this;
             oModel.update(entity, payload, {
                 success: function (resp) {
                     MessageBox.success("Details Updated", {
                         onClose: function () {
-                            var oRouter = this.getOwnerComponent().getRouter();
-                            oRouter.navTo("RouteMiningView");
-                        }.bind(this)
+                            let oRouter = that.getRouter();
+                            oRouter.navTo("RouteMiningView")
+                        }
                     });
                 },
                 error: function (error) {

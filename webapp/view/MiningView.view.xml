@@ -1,4 +1,4 @@
-<mvc:View controllerName="app.capgb27odatamining.controller.MiningView"
+<!-- <mvc:View controllerName="app.capgb27odatamining.controller.MiningView"
     xmlns:mvc="sap.ui.core.mvc" 
     xmlns:comp="sap.ui.comp.filterbar"
     xmlns="sap.m">
@@ -9,16 +9,32 @@
         <comp:filterItems>
             <comp:FilterItem name="Filter by LOC ID">
                 <comp:control>
-        <Input id= "idFilterloc" placeholder="Filter by LOC ID" liveChange="onSearch"></Input>
+        <Input id= "idFilterloc" placeholder="Filter by Loc ID" liveChange="onSearch"></Input>
                 </comp:control>
             </comp:FilterItem>
+
             <comp:FilterItem name="Filter by Descr">
             <comp:control>
         <Input id= "idFilterdesc" placeholder="Filter by Description" liveChange="onSearch"></Input>
             </comp:control>
             </comp:FilterItem>
+
+            <comp:FilterItem name="Filter by No of Drills">
+            <comp:control>
+        <Input id= "idFilterdrill" placeholder="Filter by No of Drills" liveChange="onSearch"></Input>
+            </comp:control>
+            </comp:FilterItem>
+
+            <comp:FilterItem name="Filter by Mineral Type">
+            <comp:control>
+        <Input id= "idFilterMin" placeholder="Filter by Mineral Type" liveChange="onSearch"></Input>
+            </comp:control>
+            </comp:FilterItem>
+
             </comp:filterItems>
         </comp:FilterBar>
+
+        
  
 <Table id="idMiningTab" items="{MiningDetails>/}" mode="SingleSelectMaster" selectionChange="onRowSelection" >
             <columns>
@@ -52,12 +68,12 @@
                     <Text text="{MiningDetails>LOCATION_ID}"></Text>
                     <Text text="{MiningDetails>LOC_DESCPN}"></Text>
                     <Text text="{MiningDetails>M_RES_ALLOC}"></Text>
-                    <Text text="{MiningDetails>TOTAL_COST}"></Text>
+                    <Text text="{path: 'MiningDetails>TOTAL_COST', formatter: '.formatter.formatCurrency'}"></Text>
                     <Text text="{MiningDetails>REPT_POSS_MIN}"></Text>
                     <Text text="{MiningDetails>TOTAL_DRILLS}"></Text>
                     <Text text="{MiningDetails>MINERALS_FOUND}"></Text>
-                    
-                    <Button icon="sap-icon://delete" press="onDelete"></Button>
+        
+                    <Button icon="sap-icon://delete" type="Negative" press="onDelete" tooltip="Delete" class="buttonHover" ></Button>
 
                 </cells>
             </ColumnListItem>
@@ -65,7 +81,94 @@
         <footer>
             <OverflowToolbar >
                 <ToolbarSpacer />
-                <Button text="{i18n>Create}" press="onCreate"></Button>
+                <Button icon="sap-icon://create" text="{i18n>Create}" type="Accept" press="onCreate" class="buttonHover"></Button>
+            </OverflowToolbar>
+        </footer>
+
+    </Page>
+</mvc:View> -->
+
+
+
+<mvc:View controllerName="app.capgb27odatamining.controller.MiningView"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:comp="sap.ui.comp.filterbar"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" class="pageBackground">
+
+        <content />
+        <comp:FilterBar class="filterBar">
+            <comp:filterItems>
+                <comp:FilterItem name="Filter by LOC ID">
+                    <comp:control>
+                        <Input id="idFilterloc" placeholder="Filter by Loc ID" liveChange="onSearch"></Input>
+                    </comp:control>
+                </comp:FilterItem>
+
+                <comp:FilterItem name="Filter by Descr">
+                    <comp:control>
+                        <Input id="idFilterdesc" placeholder="Filter by Description" liveChange="onSearch"></Input>
+                    </comp:control>
+                </comp:FilterItem>
+
+                <comp:FilterItem name="Filter by No of Drills">
+                    <comp:control>
+                        <Input id="idFilterdrill" placeholder="Filter by No of Drills" liveChange="onSearch"></Input>
+                    </comp:control>
+                </comp:FilterItem>
+
+                <comp:FilterItem name="Filter by Mineral Type">
+                    <comp:control>
+                        <Input id="idFilterMin" placeholder="Filter by Mineral Type" liveChange="onSearch"></Input>
+                    </comp:control>
+                </comp:FilterItem>
+            </comp:filterItems>
+        </comp:FilterBar>
+
+        <Table id="idMiningTab" items="{MiningDetails>/}" mode="SingleSelectMaster" selectionChange="onRowSelection" class="tableStyle">
+            <columns>
+                <Column>
+                    <Text text="{i18n>LOCATION_ID}" class="tableHeader"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>LOC_DESCPN}" class="tableHeader"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>M_RES_ALLOC}" class="tableHeader"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>TOTAL_COST}" class="tableHeader"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>REPT_POSS_MIN}" class="tableHeader"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>TOTAL_DRILLS}" class="tableHeader"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>MINERALS_FOUND}" class="tableHeader"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Action}" class="tableHeader"></Text>
+                </Column>
+            </columns>
+            <ColumnListItem class="tableRow">
+                <cells>
+                    <Text text="{MiningDetails>LOCATION_ID}"></Text>
+                    <Text text="{MiningDetails>LOC_DESCPN}"></Text>
+                    <Text text="{MiningDetails>M_RES_ALLOC}"></Text>
+                    <Text text="{path: 'MiningDetails>TOTAL_COST', formatter: '.formatter.formatCurrency'}"></Text>
+                    <Text text="{MiningDetails>REPT_POSS_MIN}"></Text>
+                    <Text text="{MiningDetails>TOTAL_DRILLS}"></Text>
+                    <Text text="{MiningDetails>MINERALS_FOUND}"></Text>
+                    <Button icon="sap-icon://delete" type="Negative" press="onDelete" tooltip="Delete" class="buttonHover"></Button>
+                </cells>
+            </ColumnListItem>
+        </Table>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button icon="sap-icon://create" text="{i18n>Create}" type="Accept" press="onCreate" class="buttonHover"></Button>
             </OverflowToolbar>
         </footer>
 
