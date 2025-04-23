@@ -82,6 +82,7 @@
 
 
 
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
@@ -91,7 +92,17 @@ sap.ui.define([
 
     return Controller.extend("app.capgb27odatamining.controller.CreateView", {
         onInit: function() {
-            // Initialization logic, if any
+        },
+        _getData:function(){
+            let entitySet = `/WASet`;
+            let oModel = this.getOwnerComponent().getModel();
+            oModel.read(entitySet, {
+                success: (oData, response) => {
+                    let jModel = this.getOwnerComponent().getModel("MiningDetails");
+                        jModel.setData(oData.results);
+                },
+                error: () => {}
+            });
         },
         onSubmit: function() {
             // Fetching input field objects
@@ -112,7 +123,7 @@ sap.ui.define([
             let sTdId = oTdId.getValue();
             let sMfId = oMfId.getValue();
 
-            // Preparing the payload
+            // payload
             let payload = {
                 "LOCATION_ID": sLocId,
                 "LOC_DESCPN": sDescId,
@@ -127,23 +138,29 @@ sap.ui.define([
             let entitySet = "/WASet";
             let that = this;
 
-            // Validation using validator.js
+            // validation
             validator.checkIfRecordExists(oModel, entitySet, sLocId, sDescId, function(exists) {
                 if (exists) {
                     MessageBox.error("Record with the same keys already exists.");
                 } else {
                     oModel.create(entitySet, payload, {
                         success: function(response) {
+                            oLocId.setValue("");
+                            oDescId.setValue("");
+                            oMraId.setValue("");
+                            oTcId.setValue("");
+                            oPmId.setValue("");
+                            oTdId.setValue("");
+                            oMfId.setValue("");
                             MessageBox.success("Record Inserted", {
                                 onClose: function() {
                                     let oRouter = that.getOwnerComponent().getRouter();
                                     oRouter.navTo("RouteMiningView");
-                                    // Refresh the specific binding
-                                    let oTable = that.getView().byId("idMiningTab");
-                                    let oBinding = oTable.getBinding("items");
-                                    oBinding.refresh(true);
-                                    oModel.refersh(true);
-                                }
+                                    this._getData();
+                                    oModel.refresh(true);
+                              
+
+                                }.bind(this)
                             });
                         }.bind(that),
                         error: function(error) {

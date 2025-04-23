@@ -95,31 +95,32 @@
     xmlns:comp="sap.ui.comp.filterbar"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}" class="pageBackground">
-
+    
         <content />
         <comp:FilterBar class="filterBar">
             <comp:filterItems>
-                <comp:FilterItem name="Filter by LOC ID">
+                <comp:FilterItem name="Search by LOC ID">
                     <comp:control>
-                        <Input id="idFilterloc" placeholder="Filter by Loc ID" liveChange="onSearch"></Input>
+                        <Input id="idFilterloc" placeholder="Search by Loc ID" liveChange="onSearch"></Input>
                     </comp:control>
                 </comp:FilterItem>
 
-                <comp:FilterItem name="Filter by Descr">
+
+                <comp:FilterItem name="Search by Descr">
                     <comp:control>
-                        <Input id="idFilterdesc" placeholder="Filter by Description" liveChange="onSearch"></Input>
+                        <Input id="idFilterdesc" placeholder="Search by Description" liveChange="onSearch"></Input>
                     </comp:control>
                 </comp:FilterItem>
 
-                <comp:FilterItem name="Filter by No of Drills">
+                <comp:FilterItem name="Search by No of Drills">
                     <comp:control>
-                        <Input id="idFilterdrill" placeholder="Filter by No of Drills" liveChange="onSearch"></Input>
+                        <Input id="idFilterdrill" placeholder="Search by No of Drills" liveChange="onSearch"></Input>
                     </comp:control>
                 </comp:FilterItem>
 
-                <comp:FilterItem name="Filter by Mineral Type">
+                <comp:FilterItem name="Search by Mineral Type">
                     <comp:control>
-                        <Input id="idFilterMin" placeholder="Filter by Mineral Type" liveChange="onSearch"></Input>
+                        <Input id="idFilterMin" placeholder="Search by Mineral Type" liveChange="onSearch"></Input>
                     </comp:control>
                 </comp:FilterItem>
             </comp:filterItems>
