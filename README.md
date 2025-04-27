@@ -40,3 +40,8 @@ An SAP Fiori application.
 1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
 
 
+#### Click the link to check the project:
+
+https://83b87c65trial.launchpad.cfapps.us10.hana.ondemand.com/site?siteId=92b11048-e07f-4565-adc8-04ae39f7cc1c#miningdetails-create?sap-ui-app-id-hint=saas_approuter_app.capgb27odatamining&/
+
+
