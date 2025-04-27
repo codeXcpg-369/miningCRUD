@@ -158,9 +158,23 @@ sap.ui.define([
             for (let i in payload) {
                 if (payload[i] === "") {
                     MessageBox.error("Enter all the required fields");
+                    oLocId.setValueState("Error");
+                    oDescId.setValueState("Error");
+                    oMraId.setValueState("Error");
+                    oTcId.setValueState("Error");
+                    oPmId.setValueState("Error");
+                    oTdId.setValueState("Error");
+                    oMfId.setValueState("Error");
                     return; 
                 }
             }
+            oLocId.setValueState("None");
+            oDescId.setValueState("None");
+            oMraId.setValueState("None");
+            oTcId.setValueState("None");
+            oPmId.setValueState("None");
+            oTdId.setValueState("None");
+            oMfId.setValueState("None");
 
             let oModel = this.getOwnerComponent().getModel();
             let entitySet = "/WASet";
