@@ -29,6 +29,8 @@ sap.ui.define([
             oRouter.navTo("RouteCreateView");
         },
 
+
+        
         onSearch: function() {
             let aFilter = [];
             let slocId = this.getView().byId("idFilterloc").getValue();
@@ -57,6 +59,11 @@ sap.ui.define([
             let oBinding = oTable.getBinding("items");
             oBinding.filter(aFilter);
         },
+
+
+
+
+
 
         onRowSelection:function(oEvent){
             let oItem = oEvent.getParameter("listItem");
